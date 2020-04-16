@@ -5,7 +5,6 @@ const Club = require("../models").CLUB;
 
 exports.createGame = async (req, res) => {
   try {
-    // const { id, WIN, LOSE, POINTS } = req.body;
     const result = await RecordGame.create(req.body);
     if (result) {
       const idHome = result.ID_CLUB_HOME;

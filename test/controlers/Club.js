@@ -40,9 +40,10 @@ exports.findClub = async (req, res) => {
     });
     for (let i = 0; i <= result.length - 1; i++) {
       if (result[i].NAME == param.clubname) {
-        res.status(200).json(response(result[i]));
+        res.status(404).json(responseError(result[i]));
       }
     }
+    res.status(200).json(responseError(404));
   } catch (error) {
     if (error.name) return res.status(200).json(responseError(400, error.name));
     return res.status(200).json(responseError(400, error.toString()));
